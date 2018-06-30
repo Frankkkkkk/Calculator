@@ -21,7 +21,7 @@ class Mycounter01 extends Component {
   //参数:根据当前的状态
   dispatch(action){
     //[4].以 reducer 返回的新 state 更新状态,通过 this.setstate 方法修改状态值
-    this.setstate(preState => counter(preState, action));
+    this.setState(prevState => counter(prevState, action));
   }
   //Actions
   increment =()=>{
@@ -39,6 +39,8 @@ class Mycounter01 extends Component {
         <p>{this.state.value}</p>
         {/* [1].用户点击加按钮,触发 this.increment函数[即 action]
         函数通过 this.dispatch发出 action, 告诉数据你应该要发生变化 */}
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
       </div>
     )
   }
